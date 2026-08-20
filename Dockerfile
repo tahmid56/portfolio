@@ -26,10 +26,10 @@ COPY --from=builder /app/static ./static
 
 USER app
 
-ENV PORT=8080
-EXPOSE 8080
+ENV PORT=3000
+EXPOSE 3000
 
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-    CMD wget --quiet --tries=1 --spider http://localhost:8080/ || exit 1
+    CMD wget --quiet --tries=1 --spider http://localhost:3000/ || exit 1
 
 ENTRYPOINT ["./portfolio"]
