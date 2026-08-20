@@ -1,0 +1,44 @@
+{{define "content"}}
+<section class="container page-header">
+  <h1>About Me</h1>
+  <p class="section-subtitle">{{.Profile.Tagline}}</p>
+</section>
+
+<section class="container about-section">
+  <div class="about-bio">
+    {{range .Profile.Bio}}
+    <p>{{.}}</p>
+    {{end}}
+
+    <ul class="about-meta">
+      <li><strong>Location:</strong> {{.Profile.Location}}</li>
+      <li><strong>Email:</strong> <a href="mailto:{{.Profile.Email}}">{{.Profile.Email}}</a></li>
+      <li><strong>LinkedIn:</strong> <a href="{{.Profile.LinkedIn}}" target="_blank" rel="noopener noreferrer">{{.Profile.LinkedIn}}</a></li>
+      <li><strong>GitHub:</strong> <a href="{{.Profile.GitHub}}" target="_blank" rel="noopener noreferrer">{{.Profile.GitHub}}</a></li>
+    </ul>
+  </div>
+
+  <div class="skills">
+    <h2>Skills &amp; Tech Stack</h2>
+    {{range .Skills}}
+    <div class="skill-group">
+      <h3>{{.Category}}</h3>
+      <div class="skill-tags">
+        {{range .Skills}}
+        <span class="skill-tag">{{.}}</span>
+        {{end}}
+      </div>
+    </div>
+    {{end}}
+  </div>
+</section>
+
+<section class="container philosophy-section">
+  <h2>Philosophy</h2>
+  <blockquote>
+    If it works, it scales.<br>
+    If it scales, it breaks.<br>
+    If it breaks, we fix it better.
+  </blockquote>
+</section>
+{{end}}

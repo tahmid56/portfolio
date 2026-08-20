@@ -1,0 +1,45 @@
+{{define "content"}}
+<section class="hero container">
+  <p class="eyebrow">👋 Hello, I'm</p>
+  <h1>{{.Profile.Name}}</h1>
+  <p class="hero-title">{{.Profile.Title}}</p>
+  <p class="hero-tagline">{{.Profile.Tagline}}</p>
+  <div class="hero-cta">
+    <a class="btn btn-primary" href="/contact">Get in touch</a>
+    <a class="btn btn-secondary" href="{{.Profile.GitHub}}" target="_blank" rel="noopener noreferrer">View GitHub</a>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <span class="stat-number">{{.Profile.Repos}}</span>
+      <span class="stat-label">Repositories</span>
+    </div>
+    <div class="stat">
+      <span class="stat-number">{{.Profile.Followers}}</span>
+      <span class="stat-label">Followers</span>
+    </div>
+    <div class="stat">
+      <span class="stat-number">{{.Profile.Following}}</span>
+      <span class="stat-label">Following</span>
+    </div>
+  </div>
+</section>
+
+<section class="container projects-section">
+  <h2>Featured Projects</h2>
+  <p class="section-subtitle">A few pinned repositories from my GitHub.</p>
+
+  <div class="project-grid">
+    {{range .Projects}}
+    <a class="project-card" href="{{.URL}}" target="_blank" rel="noopener noreferrer">
+      <div class="project-card-top">
+        <h3>{{.Name}}</h3>
+        <span class="badge">{{.Language}}</span>
+      </div>
+      <p>{{.Description}}</p>
+      <span class="project-link">View on GitHub →</span>
+    </a>
+    {{end}}
+  </div>
+</section>
+{{end}}

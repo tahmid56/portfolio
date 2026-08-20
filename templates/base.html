@@ -1,0 +1,39 @@
+{{define "base"}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{.Profile.Name}} — {{.Profile.Title}}</title>
+  <meta name="description" content="{{.Profile.Tagline}}">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/">{{.Profile.Name}}</a>
+      <nav class="nav">
+        <a href="/" class="{{if eq .Page "home"}}active{{end}}">Home</a>
+        <a href="/about" class="{{if eq .Page "about"}}active{{end}}">About</a>
+        <a href="/contact" class="{{if eq .Page "contact"}}active{{end}}">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    {{template "content" .}}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; {{.Year}} {{.Profile.Name}}. Built with Go &amp; html/template.</p>
+      <div class="footer-links">
+        <a href="{{.Profile.GitHub}}" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="{{.Profile.LinkedIn}}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:{{.Profile.Email}}">Email</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
+{{end}}
